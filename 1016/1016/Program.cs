@@ -210,7 +210,7 @@ namespace _1024
         {
             int n = 10;
             int suma = (int)Math.Pow(n * (n + 1) / 2, 2);
-            Console.WriteLine(suma)
+            Console.WriteLine(suma);
         }
 
         /// <summary>
