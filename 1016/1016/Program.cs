@@ -208,8 +208,9 @@ namespace _1024
         /// <exception cref="NotImplementedException"></exception>
         private static void P5()
         {
-            // TODO
-            throw new NotImplementedException();
+            int n = 10;
+            int suma = (int)Math.Pow(n * (n + 1) / 2, 2);
+            Console.WriteLine(suma);
         }
 
         /// <summary>
