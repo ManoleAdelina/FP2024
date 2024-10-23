@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -14,7 +14,7 @@ namespace _1024
             //P3();
             //P4();
             //P5();
-            //P6();
+            P6();
             //~~~~~~~~~~~~
 
             //DoublingTest();
@@ -22,7 +22,7 @@ namespace _1024
             //D1(4);
             //D2(4);
             //D3(14);
-            //D4(7);
+            D4(7);
 
 
             L1(6);
@@ -39,7 +39,18 @@ namespace _1024
         /// <exception cref="NotImplementedException"></exception>
         private static void L2(int n)
         {
-            // TODO
+            Console.WriteLine();
+            Console.WriteLine("START__-L-2-__");
+            if(n==1 || n==2 || n==3){Console.WriteLine($"termen(n)={n}");}
+            int termen=0;
+            int backNumber=1;
+            int maxImpar=3;
+            for(int i=4;i<=n;i++){
+                termen=i-backNumber;
+                if(termen%2!=0 && termen>maxImpar){maxImpar=termen;backNumber++;}
+                
+            }
+        Console.WriteLine($"L2({n})={termen}");
         }
 
         /// <summary>
@@ -53,7 +64,10 @@ namespace _1024
         /// <param name="n"></param>
         private static void L1(int n)
         {
-            // TODO
+            Console.WriteLine();
+            Console.WriteLine("--__Start____L1______--");
+            //TO DO 
+            
         }
 
 
@@ -68,9 +82,45 @@ namespace _1024
         /// </summary>
         /// <param name="v">v trebuie sa fie impar</param>
         /// <exception cref="NotImplementedException"></exception>
+        //sper ca v este numarul de linii si probabil ca este
+        //defapt pare ca v este si numarul maxim de stelute de pe o linie
         private static void D4(int v)
         {
-            // TODO
+            Console.WriteLine();
+            Console.WriteLine("start ____D4___");
+            Console.WriteLine($"D4({v})");
+            for(int i=0;i<v;i++){
+                Console.Write("*");
+            }
+            Console.WriteLine();
+            int beginna=v/2;
+            int finishMe=1;
+            //from here should first while loop start
+            while(beginna!=finishMe){
+            for(int i=beginna;i>=finishMe;i--){
+                Console.Write("*");
+            }
+                int delta=v-2*beginna;
+                for(int i=0;i<delta;i++){Console.Write(" ");}
+                for(int i=beginna;i>=finishMe;i--){
+                    Console.Write("*");
+                }
+beginna--;
+Console.WriteLine();
+            }
+//kinda here the while should end
+//also the second while loop should start,in fact i used a do while loop but here it 
+            //does not make any difference actually
+            do{
+                for(int i=beginna;i>=finishMe;i--){Console.Write("*");}
+                int delta=v-2*beginna;
+                for(int i=0;i<delta;i++){Console.Write(" ");}
+                for(int i=beginna;i>=finishMe;i--){Console.Write("*");}
+                beginna++;
+                Console.WriteLine();
+            }while(beginna!=v/2+1);
+//let's make this the end separator :)
+            for(int i=0;i<v;i++){Console.Write("*");}
         }
 
         /// <summary>
@@ -193,13 +243,29 @@ namespace _1024
         }
 
         /// <summary>
-        /// S =1^4+2^4+...+n^4
+        /// n(n+1)(2n+1)(3n2+3n−1)/30.
+        ///1**4+2**4+...+n**4
         /// </summary>
         /// <exception cref="NotImplementedException"></exception>
         private static void P6()
-        {
-            // TODO
-            throw new NotImplementedException();
+        {   
+            Console.WriteLine();
+            Console.WriteLine("____start__P____6 ");
+            Console.Write("n=\t");
+            int n=Convert.ToInt32(Console.ReadLine());
+            long a=n,b=n+1,c=2*n+1,d=3*n*n+3*n-1;
+            bool b2=true,b3=true,b5=true;
+            if(a%5==0){a/=5;}else if(b%5==0){b/=5;}else if(c%5==0){c/=5;}else if(d%5==0){d/=5;}else{b5=false;}
+            if(a%2==0){a/=2;}else if(b%2==0){b/=2;}else if(c%2==0){c/=2;}else if(d%2==0){d/=2;}else{b2=false;}
+            if(a%3==0){a/=3;}else if(b%3==0){b/=3;}else if(c%3==0){c/=3;}else if(d%3==0){d/=3;}else{b3=false;}
+            int threeTeen=30;
+            if(b2){threeTeen/=2;}
+            if(b5){threeTeen/=5;}
+            if(b3){threeTeen/=3;}
+            long result=a*b*c*d;result/=threeTeen;
+            Console.WriteLine($"P6({n})={result}");
+            
+            //throw new NotImplementedException();//dont throw it :)
         }
 
         /// <summary>
