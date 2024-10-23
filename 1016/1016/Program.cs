@@ -20,13 +20,14 @@ namespace _1024
             //DoublingTest();
 
             //D1(4);
-            //D2(4);
-            //D3(14);
+            //D2(10);
+            //D3(4);
+            //D3(8);
             //D4(7);
 
 
-            L1(6);
-            L2(10);
+            //L1(6);
+            //L2(10);
         }
         /// <summary>
         /// Sa se genereze/afiseze primii n termeni ai sirului:
@@ -39,7 +40,7 @@ namespace _1024
         /// <exception cref="NotImplementedException"></exception>
         private static void L2(int n)
         {
-            // TODO
+            // TODO: 
         }
 
         /// <summary>
@@ -49,11 +50,13 @@ namespace _1024
         /// 1 2 1 1
         /// 1 1 1 2 2 1
         /// 3 1 2 2 1 1
+        /// 1 3 1 1 2 2 2 1 
+        /// 1 1 1 3 2 1 3 2 1 1
         /// </summary>
-        /// <param name="n"></param>
+        /// <param name="n">numarul de linii care se afiseaza</param>
         private static void L1(int n)
         {
-            // TODO
+            // TODO:implement readout list of numbers
         }
 
 
@@ -106,6 +109,7 @@ namespace _1024
             // ultima linie
             for (int i = 0; i < n; i++)
                 Console.Write("* ");
+            Console.WriteLine();
         }
 
         /// <summary>
@@ -222,7 +226,25 @@ namespace _1024
             long n=1000000000;
             long M = 1000000007;
             n = int.Parse(Console.ReadLine());
-            long suma = n * (n + 1) * (2 * n + 1) / 6 % M;
+            //long suma = n * (n + 1) * (2 * n + 1) / 6 % M;
+            long a = n;
+            long b = n + 1;
+            long c = (2 * n + 1);
+            if (a % 2 == 0)
+                a = a / 2;
+            else
+                b = b / 2;
+
+            if (a % 3 == 0)
+                a = a / 3;
+            else if (b % 3 == 0)
+                b = b / 3;
+            else
+                c = c / 3;
+
+            // (a + b) mod M = (a mod M + b mod M) mod M
+            // (a * b) mod M = (a mod M * b mod M) mod M
+            long suma = a % M * b % M * c % M;
             Console.WriteLine(suma);
         }
 
