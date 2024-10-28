@@ -39,7 +39,19 @@ namespace _1024
         /// <exception cref="NotImplementedException"></exception>
         private static void L2(int n)
         {
-            // TODO
+            int i, j, k;
+            for (i = 1; i <= n; i++)
+            {
+                k = i;
+                for (j = 1; j <= i; j++)
+                {
+
+                    Console.Write($"{k} ");
+                    k++;
+
+                };
+
+            }
         }
 
         /// <summary>
@@ -70,7 +82,52 @@ namespace _1024
         /// <exception cref="NotImplementedException"></exception>
         private static void D4(int v)
         {
-            // TODO
+
+            if (v % 2 != 0)
+            {
+                int steluteInitiale = v;
+                int stelute = v;
+                int spatii = -1;
+                //prima linie
+                for (int i = 0; i < v; i++)
+                    Console.Write("*");
+                Console.WriteLine(" ");
+
+                int j = 2;
+                //mijloc
+                for (int k = 0; k < (steluteInitiale - 1) / 2; k++)
+                {
+
+                    stelute = (v - j) / 2 + 1;
+                    spatii += 2;
+                    for (int i = 0; i < stelute; i++)
+                        Console.Write("*");
+                    for (int i = 0; i < spatii; i++)
+                        Console.Write(" ");
+                    for (int i = 0; i < stelute; i++)
+                        Console.Write("*");
+                    Console.WriteLine();
+                    j = j + 2;
+                }
+
+                for (int k = 1; k < (steluteInitiale - 1) / 2; k++)
+                {
+                    stelute++;
+                    spatii -= 2;
+                    for (int i = 0; i < stelute; i++)
+                        Console.Write("*");
+                    for (int i = 0; i < spatii; i++)
+                        Console.Write(" ");
+                    for (int i = 0; i < stelute; i++)
+                        Console.Write("*");
+                    Console.WriteLine();
+                    j = j - 2;
+
+                }
+
+                for (int i = 0; i < steluteInitiale; i++)
+                    Console.Write("*");
+            }
         }
 
         /// <summary>
@@ -198,7 +255,10 @@ namespace _1024
         /// <exception cref="NotImplementedException"></exception>
         private static void P6()
         {
-            // TODO
+            int n = int.Parse(Console.ReadLine());
+
+            long suma = (n * (n + 1) * (6 * n * n * n + 9 * n * n + n + 1));
+
             throw new NotImplementedException();
         }
 
