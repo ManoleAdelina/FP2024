@@ -95,7 +95,7 @@ static void part1()
 
 List<int> A = new List<int>() { 1, 2, 3, 4, 5 };
 
-//Submultimi1(A);
+Submultimi1(A);
 
 static void Submultimi1(List<int> A)
 {
@@ -113,10 +113,10 @@ static void Submultimi1(List<int> A)
             S.Add(list);
         else
         {
-            List<int> lst1 = new List<int>(list);
+            //List<int> lst1 = new List<int>(list);
             List<int> lst2 = new List<int>(list);
 
-            Generate(lst1, count, depth + 1);
+            Generate(list, count, depth + 1);
 
             lst2.Add(A[depth]);
             Generate(lst2, count, depth + 1);
@@ -125,7 +125,7 @@ static void Submultimi1(List<int> A)
 }
 
 
-Submultimi2(A);
+//Submultimi2(A);
 
 // A = {a, b, c}
 // 000 => {}
@@ -149,6 +149,6 @@ void Submultimi2(List<int> A)
             if (bits[i] == '1')
                 lst.Add(A[i]);
         }
-        Console.WriteLine(string.Join(", ", lst);
+        Console.WriteLine(string.Join(", ", lst));
     }
 }
